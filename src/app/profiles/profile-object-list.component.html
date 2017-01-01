@@ -1,0 +1,19 @@
+<!--<div class="form-group">
+  <input class="form-control" type="search" id="filter-input" placeholder="Filter...">
+</div>-->
+<table class="table table-inverse table-hover">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th class="text-xs-right">Object Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profileObject of profileObjects" (click)="onSelect(profileObject)">
+      <th scope="row">0x{{profileObject.objectDescription.index}}</th>
+      <td>{{profileObject.objectDescription.name}}</td>
+      <td class="text-xs-right">{{profileObject.objectDescription.objectCode}}</td>
+    </tr>
+  </tbody>
+</table>
