@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
+import { environment } from '../../environments/environment';
 import { ProfileObject, Profile } from './profile';
 
 @Injectable()
@@ -23,18 +24,15 @@ export class ProfileService {
   }
 
   getProfilesUrl() {
-    return 'http://localhost:3000/profiles';
-    // return 'https://ecatapi.synapticon.com/profiles';
+    return `${environment.apiBaseUrl}/profiles`;
   }
 
   getProfileUrl(profileSeries) {
-    return `http://localhost:3000/profiles/${profileSeries}`;
-    // return `https://ecatapi.synapticon.com/profiles/${profileSeries}`;
+    return `${environment.apiBaseUrl}/profiles/${profileSeries}`;
   }
 
   getProfileObjectUrl(profileSeries, profileObjectIndex) {
-    return `http://localhost:3000/profiles/${profileSeries}/objects/${profileObjectIndex}`;
-    // return `https://ecatapi.synapticon.com/profiles/${profileSeries}/objects/${profileObjectIndex}`;
+    return `${environment.apiBaseUrl}/profiles/${profileSeries}/objects/${profileObjectIndex}`;
   }
 
   private extractData(res: Response) {
