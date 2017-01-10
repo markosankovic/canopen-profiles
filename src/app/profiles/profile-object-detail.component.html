@@ -33,7 +33,7 @@
             <td>{{entryDescription.subIndex}}</td>
             <td>{{entryDescription.description}}</td>
             <td>{{entryDescription.entryCategory}}</td>
-            <td>{{entryDescription.access}}</td>
+            <td [innerHTML]="entryDescription.access"></td>
             <td>{{entryDescription.pdoMapping}}</td>
             <td><span [innerHTML]="entryDescription.valueRange"></span></td>
             <td><span [innerHTML]="entryDescription.defaultValue"></span></td>
@@ -42,7 +42,7 @@
       </table>
     </template>
   </ngb-tab>
-  <ngb-tab title="Value Definition">
+  <ngb-tab title="Value Definition" *ngIf="profileObject.valueDefinition">
     <template ngbTabContent>
       <div [innerHTML]="profileObject.valueDefinition" style="margin-top:15px;"></div>
     </template>
