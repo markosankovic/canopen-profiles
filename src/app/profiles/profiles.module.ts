@@ -6,6 +6,7 @@ import { ProfileListComponent } from './profile-list.component';
 import { ProfileDetailComponent } from './profile-detail.component';
 import { ProfileObjectListComponent } from './profile-object-list.component';
 import { ProfileObjectDetailComponent } from './profile-object-detail.component';
+import { MathJaxDirective } from './mathjax.directive';
 
 import { ProfileService } from './profile.service';
 
@@ -21,7 +22,8 @@ import { ProfilesRoutingModule } from './profiles-routing.module';
     ProfileListComponent,
     ProfileDetailComponent,
     ProfileObjectListComponent,
-    ProfileObjectDetailComponent
+    ProfileObjectDetailComponent,
+    MathJaxDirective
   ],
   providers: [
     ProfileService

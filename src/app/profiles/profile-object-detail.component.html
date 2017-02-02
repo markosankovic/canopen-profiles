@@ -1,6 +1,6 @@
 <h2>
   <div class="object-header">
-    <strong>0x{{profileObject.objectDescription.index}}</strong>: Abort connection option code <small class="text-muted">{{profileObject.objectDescription.dataType}}</small><br>
+    <strong>0x{{profileObject.objectDescription.index}}</strong>: {{profileObject.objectDescription.name}} <small class="text-muted">{{profileObject.objectDescription.dataType}}</small><br>
     <small>
       <span class="tag tag-primary" placement="bottom" ngbTooltip="Object code: {{profileObject.objectDescription.objectCode}}">{{profileObject.objectDescription.objectCode}}</span>
       <span class="tag tag-warning" placement="bottom" ngbTooltip="Category: {{profileObject.objectDescription.category}}">{{profileObject.objectDescription.category}}</span>
@@ -11,7 +11,7 @@
 <ngb-tabset>
   <ngb-tab title="Object Description">
     <template ngbTabContent>
-      <div [innerHTML]="profileObject.description" style="margin-top:15px;"></div>
+      <div [MathJax]="profileObject.description" style="margin-top:15px;"></div>
     </template>
   </ngb-tab>
   <ngb-tab title="Entry Description">
@@ -31,12 +31,12 @@
         <tbody>
           <tr *ngFor="let entryDescription of profileObject.entryDescription">
             <td>{{entryDescription.subIndex}}</td>
-            <td>{{entryDescription.description}}</td>
+            <td [innerHTML]="entryDescription.description"></td>
             <td>{{entryDescription.entryCategory}}</td>
-            <td [innerHTML]="entryDescription.access"></td>
+            <td [innerHTML]="entryDescription.access">></td>
             <td>{{entryDescription.pdoMapping}}</td>
-            <td><span [innerHTML]="entryDescription.valueRange"></span></td>
-            <td><span [innerHTML]="entryDescription.defaultValue"></span></td>
+            <td [innerHTML]="entryDescription.valueRange"></td>
+            <td [innerHTML]="entryDescription.defaultValue"></td>
           </tr>
         </tbody>
       </table>
