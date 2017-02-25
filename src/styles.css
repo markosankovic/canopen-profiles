@@ -13,8 +13,14 @@
 }
 */
 
-body {
-  font-size: 0.9rem;
+html {
+  font-size: 12px;
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 .row.no-gutters {
