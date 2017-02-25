@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h3>Prefix</h3>
+    <table class="table table-sm table-hover">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Prefix</th>
+          <th>Symbol</th>
+          <th>Factor</th>
+          <th>Notation Index</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prefix of units.prefixes" (click)="onSelectPrefix(prefix)" [ngClass]="{'table-active': prefix === selectedPrefix}">
+          <th>{{ prefix.prefix }}</th>
+          <td>{{ prefix.symbol }}</td>
+          <td>{{ prefix.factor }}</td>
+          <td>{{ prefix.notationIndex }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-3">
+    <h3>Numerator</h3>
+    <div *ngFor="let unitTypeArea of units.unitTypeAreas">
+      <h4>{{ unitTypeArea.name }}</h4>
+      <table class="table table-sm table-hover">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Notation Index</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let unit of unitTypeArea.units" (click)="onSelectNumerator(unit)" [ngClass]="{'table-active': unit === selectedNumerator}">
+            <th>{{ unit.name }}</th>
+            <td [innerHTML]="unit.symbol"></td>
+            <td>{{ unit.notationIndex }}</td>
+            <td [innerHTML]="unit.description"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <h3>Denominator</h3>
+    <div *ngFor="let unitTypeArea of units.unitTypeAreas">
+      <h4>{{ unitTypeArea.name }}</h4>
+      <table class="table table-sm table-hover">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Notation Index</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let unit of unitTypeArea.units" (click)="onSelectDenominator(unit)" [ngClass]="{'table-active': unit === selectedDenominator}">
+            <th>{{ unit.name }}</th>
+            <td [innerHTML]="unit.symbol"></td>
+            <td>{{ unit.notationIndex }}</td>
+            <td [innerHTML]="unit.description"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <h3>Unit value</h3>
+    <div class="input-group">
+      <input type="text" class="form-control" aria-describedby="unit" [(ngModel)]="unitValue">
+      <span class="input-group-addon" id="unit" [innerHTML]="unitAddon"></span>
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" ngxClipboard [cbContent]="unitValue">copy</button>
+      </span>
+    </div>
+    <hr/>
+    <h4>Selected Prefix</h4>
+    <pre><code>{{ selectedPrefix | json }}</code></pre>
+    <h4>Selected Numerator</h4>
+    <pre><code>{{ selectedNumerator | json }}</code></pre>
+    <h4>Selected Denominator</h4>
+    <pre><code>{{ selectedDenominator | json }}</code></pre>
+  </div>
+</div>

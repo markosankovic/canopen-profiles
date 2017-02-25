@@ -9,8 +9,6 @@ export class ProfileListResolver implements Resolve<Profile[]> {
   constructor(private profileService: ProfileService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Profile[]> {
-    let profileSeries = route.params['series'];
-
     return this.profileService.getProfiles().toPromise().then(profiles => {
       if (profiles) {
         return profiles;

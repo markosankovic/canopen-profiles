@@ -11,5 +11,5 @@ export class ProfileObject {
 }
 
 export class Profile {
-  constructor(public name: string, public series: number, public description: string, public link: string, objects: Array<ProfileObject>) { }
+  constructor(public name: string, public series: number, public description: string, public link: string, public objects: Array<ProfileObject>) { }
 }

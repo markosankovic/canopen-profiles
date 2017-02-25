@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
+import { UnitListComponent } from './units/unit-list.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/profiles', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

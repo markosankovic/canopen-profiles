@@ -9,9 +9,13 @@ import { ProfileObject } from './profile';
   styleUrls: ['./profile-object-list.component.css']
 })
 export class ProfileObjectListComponent {
+
+  selectedProfileObject: ProfileObject;
+
   @Output() profileObjectSelected = new EventEmitter<ProfileObject>();
 
   onSelect(profileObject) {
+    this.selectedProfileObject = profileObject;
     this.profileObjectSelected.emit(profileObject);
   }
 }
