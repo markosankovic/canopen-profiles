@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-sm-3">
-    <h3>Prefix</h3>
+    <h5 class="text-uppercase text-primary">Prefix</h5>
+    <h6 class="text-warning">All prefixes</h6>
     <table class="table table-sm table-hover">
-      <thead class="thead-inverse">
+      <thead>
         <tr>
           <th>Prefix</th>
           <th>Symbol</th>
@@ -21,11 +22,11 @@
     </table>
   </div>
   <div class="col-sm-3">
-    <h3>Numerator</h3>
+    <h5 class="text-uppercase text-primary">Numerator</h5>
     <div *ngFor="let unitTypeArea of units.unitTypeAreas">
-      <h4>{{ unitTypeArea.name }}</h4>
+      <h6 class="text-warning">{{ unitTypeArea.name }}</h6>
       <table class="table table-sm table-hover">
-        <thead class="thead-inverse">
+        <thead>
           <tr>
             <th>Name</th>
             <th>Symbol</th>
@@ -45,11 +46,11 @@
     </div>
   </div>
   <div class="col-sm-3">
-    <h3>Denominator</h3>
+    <h5 class="text-uppercase text-primary">Denominator</h5>
     <div *ngFor="let unitTypeArea of units.unitTypeAreas">
-      <h4>{{ unitTypeArea.name }}</h4>
+      <h6 class="text-warning">{{ unitTypeArea.name }}</h6>
       <table class="table table-sm table-hover">
-        <thead class="thead-inverse">
+        <thead>
           <tr>
             <th>Name</th>
             <th>Symbol</th>
@@ -69,7 +70,7 @@
     </div>
   </div>
   <div class="col-sm-3">
-    <h3>Unit value</h3>
+    <h5 class="text-uppercase text-success">Unit value</h5>
     <div class="input-group">
       <input type="text" class="form-control" aria-describedby="unit" [(ngModel)]="unitValue">
       <span class="input-group-addon" id="unit" [innerHTML]="unitAddon"></span>
@@ -78,11 +79,23 @@
       </span>
     </div>
     <hr/>
-    <h4>Selected Prefix</h4>
-    <pre><code>{{ selectedPrefix | json }}</code></pre>
-    <h4>Selected Numerator</h4>
-    <pre><code>{{ selectedNumerator | json }}</code></pre>
-    <h4>Selected Denominator</h4>
-    <pre><code>{{ selectedDenominator | json }}</code></pre>
+    <div class="card" *ngIf="selectedPrefix">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Prefix</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ selectedPrefix | json }}</code></pre>
+      </div>
+    </div>
+    <div class="card" *ngIf="selectedNumerator">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Numerator</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ selectedNumerator | json }}</code></pre>
+      </div>
+    </div>
+    <div class="card" *ngIf="selectedDenominator">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Denominator</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ selectedDenominator | json }}</code></pre>
+      </div>
+    </div>
   </div>
 </div>

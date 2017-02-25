@@ -33,7 +33,7 @@ export class Unit {
   }
 
   get symbolString(): string {
-    return (typeof this.symbol === 'string' && this.symbol !== '1') ? this.symbol : '';
+    return (typeof this.symbol === 'string') ? this.symbol : '';
   }
 
   get notationIndexDecimal(): number {
