@@ -1,5 +1,51 @@
 <div class="row">
   <div class="col-sm-3">
+    <h5 class="text-uppercase text-success">Unit value</h5>
+    <div class="input-group">
+      <input type="text" class="form-control" aria-describedby="unit" [(ngModel)]="unitValue.index">
+      <span class="input-group-addon" id="unit" [innerHTML]="unitValue.symbol"></span>
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" ngxClipboard [cbContent]="unitValue.index">copy</button>
+      </span>
+    </div>
+    <hr/>
+    <h6 class="text-uppercase text-warning">Predefined units</h6>
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Index</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let predefinedUnit of units.predefinedUnits" (click)="unitValue.prefix = predefinedUnit.prefix; unitValue.numerator = predefinedUnit.numerator; unitValue.denominator = predefinedUnit.denominator"  [ngClass]="{'table-active': unitValue.prefix === predefinedUnit.prefix && unitValue.numerator === predefinedUnit.numerator && unitValue.denominator === predefinedUnit.denominator}">
+          <td [innerHTML]="predefinedUnit.symbol"></td>
+          <td [innerHTML]="predefinedUnit.index"></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr/>
+    <h6 class="text-uppercase text-warning">Selected</h6>
+    <div class="card" *ngIf="unitValue.prefix">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Prefix</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ unitValue.prefix | json }}</code></pre>
+      </div>
+    </div>
+    <div class="card" *ngIf="unitValue.numerator">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Numerator</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ unitValue.numerator | json }}</code></pre>
+      </div>
+    </div>
+    <div class="card" *ngIf="unitValue.denominator">
+      <div class="card-block text-nowrap">
+        <p class="float-xs-right text-uppercase text-primary">Denominator</p>
+        <pre style="margin-bottom: 0rem;"><code>{{ unitValue.denominator | json }}</code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
     <h5 class="text-uppercase text-primary">Prefix</h5>
     <h6 class="text-warning">All prefixes</h6>
     <table class="table table-sm table-hover">
@@ -12,8 +58,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let prefix of units.prefixes" (click)="onSelectPrefix(prefix)" [ngClass]="{'table-active': prefix === selectedPrefix}">
-          <th>{{ prefix.prefix }}</th>
+        <tr *ngFor="let prefix of units.prefixes" (click)="unitValue.prefix = prefix" [ngClass]="{'table-active': prefix === unitValue.prefix}">
+          <td>{{ prefix.prefix }}</td>
           <td>{{ prefix.symbol }}</td>
           <td>{{ prefix.factor }}</td>
           <td>{{ prefix.notationIndex }}</td>
@@ -35,8 +81,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let unit of unitTypeArea.units" (click)="onSelectNumerator(unit)" [ngClass]="{'table-active': unit === selectedNumerator}">
-            <th>{{ unit.name }}</th>
+          <tr *ngFor="let unit of unitTypeArea.units" (click)="unitValue.numerator = unit" [ngClass]="{'table-active': unit === unitValue.numerator}">
+            <td>{{ unit.name }}</td>
             <td [innerHTML]="unit.symbol"></td>
             <td>{{ unit.notationIndex }}</td>
             <td [innerHTML]="unit.description"></td>
@@ -59,43 +105,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let unit of unitTypeArea.units" (click)="onSelectDenominator(unit)" [ngClass]="{'table-active': unit === selectedDenominator}">
-            <th>{{ unit.name }}</th>
+          <tr *ngFor="let unit of unitTypeArea.units" (click)="unitValue.denominator = unit" [ngClass]="{'table-active': unit === unitValue.denominator}">
+            <td>{{ unit.name }}</td>
             <td [innerHTML]="unit.symbol"></td>
             <td>{{ unit.notationIndex }}</td>
             <td [innerHTML]="unit.description"></td>
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <h5 class="text-uppercase text-success">Unit value</h5>
-    <div class="input-group">
-      <input type="text" class="form-control" aria-describedby="unit" [(ngModel)]="unitValue">
-      <span class="input-group-addon" id="unit" [innerHTML]="unitAddon"></span>
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" ngxClipboard [cbContent]="unitValue">copy</button>
-      </span>
-    </div>
-    <hr/>
-    <div class="card" *ngIf="selectedPrefix">
-      <div class="card-block text-nowrap">
-        <p class="float-xs-right text-uppercase text-primary">Prefix</p>
-        <pre style="margin-bottom: 0rem;"><code>{{ selectedPrefix | json }}</code></pre>
-      </div>
-    </div>
-    <div class="card" *ngIf="selectedNumerator">
-      <div class="card-block text-nowrap">
-        <p class="float-xs-right text-uppercase text-primary">Numerator</p>
-        <pre style="margin-bottom: 0rem;"><code>{{ selectedNumerator | json }}</code></pre>
-      </div>
-    </div>
-    <div class="card" *ngIf="selectedDenominator">
-      <div class="card-block text-nowrap">
-        <p class="float-xs-right text-uppercase text-primary">Denominator</p>
-        <pre style="margin-bottom: 0rem;"><code>{{ selectedDenominator | json }}</code></pre>
-      </div>
     </div>
   </div>
 </div>
