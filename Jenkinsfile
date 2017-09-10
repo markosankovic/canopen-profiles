@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'ng build --prod'
+                sh 'npm run build'
             }
         }
         stage('Build and Push Docker Image') {
