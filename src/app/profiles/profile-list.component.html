@@ -2,7 +2,7 @@
   <div class="col-lg-2">
     <div id="profile-list-group" class="list-group">
       <a class="list-group-item list-group-item-action" *ngFor="let profile of profiles" [routerLink]="['/profiles', profile.series]" routerLinkActive="active">
-        <span class="tag tag-success tag-pill float-xs-right">{{profile.objects.length}} objects</span>
+        <span class="badge badge-success float-right">{{profile.objects.length}} objects</span>
         <h5 class="list-group-item-heading">{{profile.name}}</h5>
         <p class="list-group-item-text">{{profile.description}}</p>
       </a>

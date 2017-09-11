@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Profile } from './profile';
@@ -7,7 +7,7 @@ import { Profile } from './profile';
   templateUrl: './profile-list.component.html',
   styleUrls: ['./profile-list.component.css']
 })
-export class ProfileListComponent {
+export class ProfileListComponent implements OnInit {
 
   profiles: Profile[];
 

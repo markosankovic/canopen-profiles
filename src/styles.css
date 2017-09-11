@@ -1,27 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 /* app */
-
-
-/*
-* {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
-}
-*/
-
-html {
-  font-size: 12px;
-}
-
-@media (min-width: 1440px) {
-  html {
-    font-size: 14px;
-  }
-}
 
 .row.no-gutters {
   margin-right: 0;

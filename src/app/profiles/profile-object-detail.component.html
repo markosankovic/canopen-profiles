@@ -2,20 +2,20 @@
   <div class="object-header">
     <strong>0x{{profileObject.objectDescription.index}}</strong>: {{profileObject.objectDescription.name}} <small class="text-muted">{{profileObject.objectDescription.dataType}}</small><br>
     <small>
-      <span class="tag tag-primary" style="font-size: 1rem;" placement="bottom" ngbTooltip="Object code: {{profileObject.objectDescription.objectCode}}">{{profileObject.objectDescription.objectCode}}</span>
-      <span class="tag tag-warning" style="font-size: 1rem;" placement="bottom" ngbTooltip="Category: {{profileObject.objectDescription.category}}">{{profileObject.objectDescription.category}}</span>
+      <span class="badge badge-primary" style="font-size: 1rem;" placement="bottom" ngbTooltip="Object code: {{profileObject.objectDescription.objectCode}}">{{profileObject.objectDescription.objectCode}}</span>
+      <span class="badge badge-info" style="font-size: 1rem;" placement="bottom" ngbTooltip="Category: {{profileObject.objectDescription.category}}">{{profileObject.objectDescription.category}}</span>
     </small>
   </div>
 </h2>
 
 <ngb-tabset>
   <ngb-tab title="Object Description">
-    <template ngbTabContent>
+    <ng-template ngbTabContent>
       <div [MathJax]="profileObject.description" style="margin-top:15px;"></div>
-    </template>
+    </ng-template>
   </ngb-tab>
   <ngb-tab title="Entry Description">
-    <template ngbTabContent>
+    <ng-template ngbTabContent>
       <table class="table" style="margin-top:15px;">
         <thead>
           <tr>
@@ -40,11 +40,11 @@
           </tr>
         </tbody>
       </table>
-    </template>
+    </ng-template>
   </ngb-tab>
   <ngb-tab title="Value Definition" *ngIf="profileObject.valueDefinition">
-    <template ngbTabContent>
+    <ng-template ngbTabContent>
       <div [innerHTML]="profileObject.valueDefinition" style="margin-top:15px;"></div>
-    </template>
+    </ng-template>
   </ngb-tab>
 </ngb-tabset>

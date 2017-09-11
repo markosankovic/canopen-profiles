@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProfileObject } from './profile';
@@ -7,7 +7,7 @@ import { ProfileObject } from './profile';
   templateUrl: './profile-object-detail.component.html',
   styleUrls: ['./profile-object-detail.component.css']
 })
-export class ProfileObjectDetailComponent {
+export class ProfileObjectDetailComponent implements OnInit {
 
   profileObject: ProfileObject;
 

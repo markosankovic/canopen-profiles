@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-4">
-    <profile-object-list [profileObjects]="profile.objects" (profileObjectSelected)="profileObjectSelected($event)"></profile-object-list>
+    <app-profile-object-list [profileObjects]="profile.objects" (profileObjectSelected)="profileObjectSelected($event)"></app-profile-object-list>
   </div>
   <div class="col-lg-8">
     <router-outlet></router-outlet>

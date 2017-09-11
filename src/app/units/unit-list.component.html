@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-3">
-    <h5 class="text-uppercase text-success">Unit value</h5>
+    <h5 class="text-uppercase text-success col-title">Unit value</h5>
     <div class="input-group">
-      <input type="text" class="form-control" aria-describedby="unit" [(ngModel)]="unitValue.index">
+      <input type="text" class="form-control" aria-describedby="unit" value="{{unitValue.index}}">
       <span class="input-group-addon" id="unit" [innerHTML]="unitValue.symbol"></span>
       <span class="input-group-btn">
         <button class="btn btn-secondary" type="button" ngxClipboard [cbContent]="unitValue.index">copy</button>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="col-sm-3">
-    <h5 class="text-uppercase text-primary">Prefix</h5>
+    <h5 class="text-uppercase text-primary col-title">Prefix</h5>
     <h6 class="text-warning">All prefixes</h6>
     <table class="table table-sm table-hover">
       <thead>
@@ -68,7 +68,7 @@
     </table>
   </div>
   <div class="col-sm-3">
-    <h5 class="text-uppercase text-primary">Numerator</h5>
+    <h5 class="text-uppercase text-primary col-title">Numerator</h5>
     <div *ngFor="let unitTypeArea of units.unitTypeAreas">
       <h6 class="text-warning">{{ unitTypeArea.name }}</h6>
       <table class="table table-sm table-hover">
@@ -92,7 +92,7 @@
     </div>
   </div>
   <div class="col-sm-3">
-    <h5 class="text-uppercase text-primary">Denominator</h5>
+    <h5 class="text-uppercase text-primary col-title">Denominator</h5>
     <div *ngFor="let unitTypeArea of units.unitTypeAreas">
       <h6 class="text-warning">{{ unitTypeArea.name }}</h6>
       <table class="table table-sm table-hover">
