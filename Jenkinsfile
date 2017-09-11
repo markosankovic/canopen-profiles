@@ -7,9 +7,9 @@ pipeline {
             }
         }
         stage('Test') {
-          steps {
-            sh 'npm run test-single-run'
-          }
+            steps {
+                sh 'npm run test-single-run'
+            }
         }
         stage('Build') {
             steps {
@@ -31,7 +31,7 @@ pipeline {
                 ansiblePlaybook('/var/jenkins_home/workspace/synapticon-playbooks/playbook.yml') {
                     inventoryPath('/var/jenkins_home/workspace/synapticon-playbooks/dev')
                     tags('canopen-profiles')
-                    credentialsId('synapticon-web.pem')
+                    credentialsId('synapticon-dev.pem')
                 }
             }
         }
