@@ -33,7 +33,9 @@ pipeline {
         stage('Deploy') {
             agent any
             steps {
-                sh 'ansible-playbook -i /var/jenkins_home/workspace/synapticon-playbooks/dev --tags canopen-profiles /var/jenkins_home/workspace/synapticon-playbooks/playbook.yml'
+                dir('/var/jenkins_home/workspace/synapticon-playbooks') {
+                    ansiblePlaybook inventory: 'dev', playbook: 'playbook.yml', tags: 'canopen-profiles'
+                }
             }
         }
     }
