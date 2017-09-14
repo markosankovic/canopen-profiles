@@ -1,5 +1,7 @@
 # CANopen profiles
 
+[![Build Status](https://ci2.synapticon.com/job/canopen-profiles/job/master/badge/icon)](https://ci2.synapticon.com/job/canopen-profiles/job/master/)
+
 Catalog of CANopen profiles.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
