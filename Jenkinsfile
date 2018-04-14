@@ -7,12 +7,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') {
-            agent { docker 'node:boron' }
-            steps {
-                sh 'npm run test-single-run'
-            }
-        }
         stage('Build') {
             agent { docker 'node:boron' }
             steps {
