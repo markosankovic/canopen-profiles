@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://ecatapi-staging.synapticon.com'
+  apiBaseUrl: 'https://ecatapi.synapticon.com'
 };
