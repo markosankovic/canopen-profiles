@@ -1,4 +1,4 @@
-# CANopen profiles
+# CANopen Profiles
 
 Catalog of CANopen profiles.
 
